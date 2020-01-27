@@ -1,6 +1,6 @@
-require('graphql');
-require('apollo-server');
+const { gql } = require('apollo-server');
 
+const typedefs = gql`
 type Catalog = {
     uri: ID!
     title: [String]!
@@ -11,7 +11,7 @@ type Catalog = {
     rights: String
     spatial: [String]
     homepage: String
-    dataset: [Dataset]
+    datasets: [Dataset]
 }
 type Dataset = {
     uri: ID!
@@ -27,7 +27,7 @@ type Dataset = {
     accrualPeriodicity: String
     landingPage: [String]
     publisher: Agent
-    distribution: [Distribution]
+    distributions: [Distribution]
 }
 type Distribution = {
     uri: ID!
@@ -62,4 +62,4 @@ type Concept = {
     prefLabel: [String]
     altLabel: [String]
     inscheme: [String]
-}
+}`
